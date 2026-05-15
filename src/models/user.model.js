@@ -48,7 +48,7 @@ const userSchema  = new Schema({
     timestamps: true
 })
 
-userSchema.pre("save", function (next) {              // cant use arrow fn here
+userSchema.pre("save", async function (next) {              // cant use arrow fn here
     if(!this.isModified("password")){
         return next();
     }
